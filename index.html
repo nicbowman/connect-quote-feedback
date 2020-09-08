@@ -7,40 +7,114 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-    <br>
-    <div class="container">
-        <p>We did quotes for *client name* a few days ago and I just wanted to catch-up with you and get feedback on if you were happy with the options provided.</p>
-        <p>Please click on the appropriate icon from the below options to provide feedback:</p>
-            <table class="table" style="width:800;">
-                <tbody>
-                    <tr>
-                        <td id="td_moreDetails" style="width: 33.3333%;"><input type="radio" id="radio_moreDetails" name="radioBtn" value="moreDetails"><img id="img_moreDetails" src="img/moreDetails.png" style="width: 94px;" class="fr-fic fr-dib"></a></td>
-                        <td id="td_ntuQuote" style="width: 33.3333%;"><input type="radio" id="radio_ntuQuote" name="radioBtn" value="ntuQuote"><img id="img_ntuQuote" src="img/ntuQuote.png" style="width: 92px;" class="fr-fic fr-dib"></a></td>
-                        <td id="td_quoteWon" style="width: 33.3333%;"><input type="radio" id="radio_quoteWon" name="radioBtn" value="quoteWon"><img id="img_quoteWon" src="img/acceptQuote.png" style="width: 89px;" class="fr-fic fr-dib"></a></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 33.3333%;"><div style="text-align: center;">I would like to discuss this quote further.</div><div style="text-align: center;">Please contact me and let us set up a call or meeting.</div></td>
-                        <td style="width: 33.3333%;"><div style="text-align: center;">Please NTU this quote</div></td>
-                        <td style="width: 33.3333%;"><div style="text-align: center;">Quote has been accepted by the client</div></td>
-                    </tr>
-                </tbody>
-            </table>
-        <p><button id="btn_submit" type="button" onclick="submitFeedback()">Submit</button></p>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top align-self-center flex-md-nowrap p-1 shadow" style="background-color:#041c2c">
+        <span class="ml-1"><img src="img/OLogo.png"  alt="" width="25" height="25" title="Home"></span>
+        <a class="navbar-brand col-auto col-sm-3 col-md-2 mr-0 ml-1 ml-1 pl-0 align-self-center" href="#">Icon</a>
+        <ul class="navbar-nav d-block d-md-none px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <!--<li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+          </li>-->
+        </ul>
+      </nav>
+    <div class="container mt-5">
+        <div id="submission">
+            <div class="row justify-content-center">
+                <div class="col-10 mt-3">
+                    <p>We did quotes for *client name* a few days ago and I just wanted to catch-up with you and get feedback on if you were happy with the options provided.</p>
+                    <p>Please click on the appropriate icon from the below options to provide feedback:</p>
+                </div>
+               </div>
+               <div class="row justify-content-center text-center">
+                <div class="row col-10 justify-content-center mt-3">
+                    <div class="col-4">
+                        <img id="moreInfo" class="m-2" src="img/question.svg" style="max-width:30%">
+                        <p>I'd like to discuss this quote further, please call me</p>
+                    </div>
+                    <div class="col-4">
+                        <img id="cancel" class="m-2" src="img/cross.svg" style="max-width:30%">
+                        <p>Please cancel this quote</p>
+                    </div>
+                    <div class="col-4">
+                        <img id="accepted" class="m-2" src="img/tick.svg" style="max-width:30%">
+                        <p>This quote has been accepted!</p>
+                    </div>
+                </div>
+               </div>
+               <div class="row justify-content-center text-center">
+                <div class="row col-10 justify-content-center mt-3">
+                    <div class="col-4">
+                        <img id="moreInfoSelected" class="m-2" src="img/selected.svg" style="max-width:10%; visibility: hidden;">
+                    </div>
+                    <div class="col-4">
+                        <img id="cancelSelected" class="m-2" src="img/selected.svg" style="max-width:10%; visibility: hidden;">
+                    </div>
+                    <div class="col-4">
+                        <img id="acceptedSelected" class="m-2" src="img/selected.svg" style="max-width:10%; visibility: hidden;">
+                    </div>
+                </div>
+               </div>
+               <div class="justify-content-center text-center mt-5">
+                <a id="submit" class="btn btn-primary btn-md disabled" href="#">Submit</a>
+               </div>
+        </div>
+        <div id="submitted" class="row justify-content-center text-center " style="display: none;">
+            <div class="col-12 justify-content-center text-center mt-5" >
+                <img class="mt-5" src="img/selected.svg" style="max-width:10%">
+                <h4 id="submitText" class="mt-3">Thank you. Your feedback is much appreciated!</h4>
+            </div>
+        </div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script>
-    $("#radio_moreDetails").change(function(){
-        $("#td_moreDetails").attr("style", "background-color:yellow")
-    });
-    $("#radio_ntuQuote").change(function(){
-        $("#radio_ntuQuote").attr("style", "background-color:red")
-    });
-    $("#radio_quoteWon").change(function(){
-        $("#radio_quoteWon").attr("style", "background-color:green")
-    });
-    function submitFeedback() { 
-        
-    } 
+$(document).ready(function(){
+    var selected = null
+    
+    $("#moreInfo").click(function(){
+        selected = "More info required"
+        $("#moreInfoSelected").css("visibility","")
+        $("#moreInfoSelected").show()
+        $("#acceptedSelected").hide()
+        $("#cancelSelected").hide()
+        $("#submit").removeClass("disabled")
+    })
+
+    $("#cancel").click(function(){
+        selected = "Cancelled"
+        $("#cancelSelected").css("visibility","")
+        $("#cancelSelected").show()
+        $("#moreInfoSelected").hide()
+        $("#acceptedSelected").hide()
+        $("#submit").removeClass("disabled")
+    })
+
+    $("#accepted").click(function(){
+        selected = "Accepted"
+        $("#acceptedSelected").css("visibility","")
+        $("#acceptedSelected").show()
+        $("#moreInfoSelected").hide()
+        $("#cancelSelected").hide()
+        $("#submit").removeClass("disabled")
+    })
+
+    $("#submit").click(function(){
+        $("#submission").hide()
+        $("#submitted").removeAttr("style").hide().fadeIn("slow")
+        if (selected == "More info required"){
+            $("#submitText").text("Thank you. Someone will give you a call shortly!")
+        }
+
+        else if (selected == "Cancelled"){
+            $("#submitText").text("Always a pity, but we lookforward to the next one!")
+        }
+
+        else if (selected == "Accepted"){
+            $("#submitText").text("Fantastic! We will do our best to get the business issued as smoothly as possible.")
+        }
+    })
+})
 </script>
 </html>
