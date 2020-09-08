@@ -9,21 +9,32 @@
 </head>
 <body>
     <p>We did quotes for *client name* a few days ago and I just wanted to catch-up with you and get feedback on if you were happy with the options provided.</p>
-    <p>Please provide quote feedback from the below:</p>
+    <p>Please click on the appropriate icon from the below options to provide feedback:</p>
         <table class="table" style="width:800;">
             <tbody>
                 <tr>
-                    <td style="width: 33.3333%;"><a href="http://www.morequotedetails.co.za"><img src="blob:https://froala.com/19b47115-461b-4504-ac8c-daf8cf98d186" style="width: 94px;" class="fr-fic fr-dib"></a></td>
-                    <td style="width: 33.3333%;"><a href="http://www.ntu.co.za"><img src="blob:https://froala.com/f0239569-37cc-43c9-b098-8be6bc7b0773" style="width: 92px;" class="fr-fic fr-dib"></a></td>
-                    <td style="width: 33.3333%;"><a href="http://www.quoteWon.co.za"><img src="blob:https://froala.com/8b31096d-15d4-496c-b3e3-009f4be7cfc4" style="width: 89px;" class="fr-fic fr-dib"></a></td>
+                    <td id="td_moreDetails" onclick="moreDetailsColor()" style="width: 33.3333%;"><img id="img_moreDetails" src="blob:https://froala.com/19b47115-461b-4504-ac8c-daf8cf98d186" style="width: 94px;" class="fr-fic fr-dib"></a></td>
+                    <td id="td_ntuQuote" onclick="ntuQuoteColor()" style="width: 33.3333%;"><img id="img_ntuQuote" src="blob:https://froala.com/f0239569-37cc-43c9-b098-8be6bc7b0773" style="width: 92px;" class="fr-fic fr-dib"></a></td>
+                    <td id="td_quoteWon" onclick="quoteWonColor()" style="width: 33.3333%;"><img id="img_quoteWon" src="blob:https://froala.com/8b31096d-15d4-496c-b3e3-009f4be7cfc4" style="width: 89px;" class="fr-fic fr-dib"></a></td>
                 </tr>
                 <tr>
                     <td style="width: 33.3333%;"><div style="text-align: center;">I would like to discuss this quote further.</div><div style="text-align: center;">Please contact me and let us set up a call or meeting.</div></td>
-                    <td style="width: 33.3333%;"><div style="text-align: center;">Please NTU this quote as it was lost</div></td>
+                    <td style="width: 33.3333%;"><div style="text-align: center;">Please NTU this quote</div></td>
                     <td style="width: 33.3333%;"><div style="text-align: center;">Quote has been accepted by the client</div></td>
                 </tr>
             </tbody>
         </table>
+        <p><button id="btn_submit" type="button">Submit</button></p>
 </body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+    function moreDetailsColor() { 
+        document.getElementById("td_moreDetails").style.color = "#ffda24";
+    } 
+    function ntuQuoteColor() { 
+        document.getElementById("td_ntuQuote").style.color = "#f01a1a";
+    } 
+    function quoteWonColor() { 
+        document.getElementById("td_quoteWon").style.color = "#10eb3c";
+    } 
+</script>
 </html>
