@@ -32,12 +32,18 @@
 <script>
     $("#radio_moreDetails").change(function(){
         $("#td_moreDetails").attr("style", "background-color:yellow")
+        $("#td_ntuQuote").attr("style", "background-color:white")
+        $("#td_quoteWon").attr("style", "background-color:white")
     });
     $("#radio_ntuQuote").change(function(){
-        $("#radio_ntuQuote").attr("style", "background-color:red")
+        $("#td_moreDetails").attr("style", "background-color:white")
+        $("#td_ntuQuote").attr("style", "background-color:red")
+        $("#td_quoteWon").attr("style", "background-color:white")
     });
     $("#radio_quoteWon").change(function(){
-        $("#radio_quoteWon").attr("style", "background-color:green")
+        $("#td_moreDetails").attr("style", "background-color:white")
+        $("#td_ntuQuote").attr("style", "background-color:white")
+        $("#td_quoteWon").attr("style", "background-color:green")
     });
     function submitFeedback() { 
         
