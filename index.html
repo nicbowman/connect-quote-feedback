@@ -4,7 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quote Feedback</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
@@ -15,9 +14,9 @@
             <table class="table" style="width:800;">
                 <tbody>
                     <tr>
-                        <td id="td_moreDetails" style="width: 33.3333%;"><input type="radio" id="radio_moreDetails" name="radioBtn"value="moreDetails" onclick="moreDetailsColor()"><img id="img_moreDetails" src="img/moreDetails.png" style="width: 94px;" class="fr-fic fr-dib"></a></td>
-                        <td id="td_ntuQuote" style="width: 33.3333%;"><input type="radio" id="radio_ntuQuote" name="radioBtn" value="ntuQuote" onclick="ntuQuoteColor()"><img id="img_ntuQuote" src="img/ntuQuote.png" style="width: 92px;" class="fr-fic fr-dib"></a></td>
-                        <td id="td_quoteWon" style="width: 33.3333%;"><input type="radio" id="radio_quoteWon" name="radioBtn" value="quoteWon" onclick="quoteWonColor()"><img id="img_quoteWon" src="img/acceptQuote.png" style="width: 89px;" class="fr-fic fr-dib"></a></td>
+                        <td id="td_moreDetails" style="width: 33.3333%;"><input type="radio" id="radio_moreDetails" name="radioBtn" value="moreDetails"><img id="img_moreDetails" src="img/moreDetails.png" style="width: 94px;" class="fr-fic fr-dib"></a></td>
+                        <td id="td_ntuQuote" style="width: 33.3333%;"><input type="radio" id="radio_ntuQuote" name="radioBtn" value="ntuQuote"><img id="img_ntuQuote" src="img/ntuQuote.png" style="width: 92px;" class="fr-fic fr-dib"></a></td>
+                        <td id="td_quoteWon" style="width: 33.3333%;"><input type="radio" id="radio_quoteWon" name="radioBtn" value="quoteWon"><img id="img_quoteWon" src="img/acceptQuote.png" style="width: 89px;" class="fr-fic fr-dib"></a></td>
                     </tr>
                     <tr>
                         <td style="width: 33.3333%;"><div style="text-align: center;">I would like to discuss this quote further.</div><div style="text-align: center;">Please contact me and let us set up a call or meeting.</div></td>
@@ -29,16 +28,17 @@
         <p><button id="btn_submit" type="button" onclick="submitFeedback()">Submit</button></p>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
-    function moreDetailsColor() { 
-        document.getElementById("td_moreDetails").style.color = "yellow";
-    } 
-    function ntuQuoteColor() { 
-        document.getElementById("td_ntuQuote").style.color = "red";
-    } 
-    function quoteWonColor() { 
-        document.getElementById("td_quoteWon").style.color = "green";
-    }
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+    $("#radio_moreDetails").change(function(){
+        $("#td_moreDetails").attr("style", "background-color:yellow")
+    });
+    $("#radio_ntuQuote").change(function(){
+        $("#radio_ntuQuote").attr("style", "background-color:red")
+    });
+    $("#radio_quoteWon").change(function(){
+        $("#radio_quoteWon").attr("style", "background-color:green")
+    });
     function submitFeedback() { 
         
     } 
