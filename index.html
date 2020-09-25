@@ -51,11 +51,6 @@
                         <img id="moreInfoSelected" class="m-2" src="img/selected.svg" style="max-width:10%; visibility: hidden;">
                     </div>
                     <div class="col-4">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                    </div>
-                        <textarea class="form-control" id="addInfo" aria-label="With textarea" placeholder="Please provide any reasons for cancellation." style="visibility: hidden"></textarea>
-                    </div>
                         <img id="cancelSelected" class="m-2" src="img/selected.svg" style="max-width:10%; visibility: hidden;">
                     </div>
                     <div class="col-4">
@@ -63,6 +58,15 @@
                     </div>
                 </div>
                </div>
+
+               <div class="row">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                </div>
+                    <textarea class="form-control" id="addInfo" aria-label="With textarea" placeholder="Please provide any reasons for cancellation." style="visibility: hidden"></textarea>
+                </div>
+               </div>
+
                <div class="justify-content-center text-center mt-5">
                 <a id="submit" class="btn btn-primary btn-md disabled" href="#">Submit</a>
                </div>
@@ -133,6 +137,7 @@ $(document).ready(function(){
 
     //function for submit button to show user success screen and submit info to endpoint
     $("#submit").click(function(){
+        var reason = "";
         $("#submission").hide()
         $("#submitted").removeAttr("style").hide().fadeIn("slow")
         if (selected == "More info required"){
@@ -147,13 +152,18 @@ $(document).ready(function(){
             $("#submitText").text("Fantastic! We will do our best to get the business issued as smoothly as possible.")
         }
 
+        if ($("#addInfo").val() != null || $("#addInfo").val() != ""){
+            console.log($("#addInfo").val())
+            reason = $("#addInfo").val()
+        }
         //Create Object
         var dataObject = {
         "quoteFeedback": selected,
-        "guid": guid
+        "guid": guid,
+        "quoteLostReason": reason
         };               
 
-        //console.log(dataObject)
+        console.log(dataObject)
 
         //Create Object and Post Data
         var $jQ = jQuery.noConflict();
